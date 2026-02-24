@@ -10,7 +10,6 @@ class GameUI {
     this.timerStarted = false;
 
     this.boardContainer = document.getElementById('board-container');
-    this.selectionInfo = document.getElementById('selection-info');
     this.btnOpen = document.getElementById('btn-open');
     this.btnMark = document.getElementById('btn-mark');
     this.btnQuestion = document.getElementById('btn-question');
@@ -332,7 +331,6 @@ class GameUI {
 
   _updateInfo() {
     if (this.selectedRow < 0) {
-      this.selectionInfo.textContent = t('selectCell');
       this.btnOpen.disabled = true;
       this.btnMark.disabled = true;
       this.btnQuestion.disabled = true;
@@ -340,10 +338,6 @@ class GameUI {
     }
 
     const cell = this.game.getCell(this.selectedRow, this.selectedCol);
-    const pos = `(${this.selectedRow + 1},${this.selectedCol + 1})`;
-    const desc = this.game.getCellDescription(this.selectedRow, this.selectedCol);
-
-    this.selectionInfo.textContent = `${t('selection')}: ${pos} — ${desc}`;
 
     const canChord = this.game.canChord(this.selectedRow, this.selectedCol);
 
@@ -414,7 +408,6 @@ class GameUI {
     this.btnOpen.disabled = true;
     this.btnMark.disabled = true;
     this.btnQuestion.disabled = true;
-    this.selectionInfo.textContent = t('endHint');
   }
 
   _showWin() {
@@ -437,7 +430,6 @@ class GameUI {
     this.btnOpen.disabled = true;
     this.btnMark.disabled = true;
     this.btnQuestion.disabled = true;
-    this.selectionInfo.textContent = t('endHint');
   }
 
   destroy() {
