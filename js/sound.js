@@ -1,5 +1,6 @@
 const Sound = (() => {
   let ctx = null;
+  let muted = true; // default off
 
   function getCtx() {
     if (!ctx) ctx = new (window.AudioContext || window.webkitAudioContext)();
@@ -7,8 +8,12 @@ const Sound = (() => {
     return ctx;
   }
 
+  function setMuted(v) { muted = v; }
+  function isMuted() { return muted; }
+
   // Cascade: C-E-G ascending arpeggio, note count scales with cells opened
   function cascade(cellCount) {
+    if (muted) return;
     const ac = getCtx();
     const now = ac.currentTime;
     const vol = 0.1;
@@ -41,6 +46,7 @@ const Sound = (() => {
 
   // Win: 솔솔솔도~~ (Prince of Persia item pickup style)
   function win() {
+    if (muted) return;
     const ac = getCtx();
     const now = ac.currentTime;
     const vol = 0.1;
@@ -74,6 +80,7 @@ const Sound = (() => {
 
   // Lose: 라솔라~~ 솔파미레, 도#~~레~~ (same triangle tone as cascade)
   function lose() {
+    if (muted) return;
     const ac = getCtx();
     const now = ac.currentTime;
     const vol = 0.1;
@@ -109,5 +116,5 @@ const Sound = (() => {
     });
   }
 
-  return { cascade, win, lose };
+  return { cascade, win, lose, setMuted, isMuted };
 })();

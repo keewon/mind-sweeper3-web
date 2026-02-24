@@ -7,6 +7,9 @@
   const themeToggle = document.getElementById('theme-toggle');
   const themeIcon = document.getElementById('theme-icon');
   const themeLabel = document.getElementById('theme-label');
+  const soundToggle = document.getElementById('sound-toggle');
+  const soundIcon = document.getElementById('sound-icon');
+  const soundLabel = document.getElementById('sound-label');
   const langSelect = document.getElementById('lang-select');
 
   let game = new Game();
@@ -29,6 +32,7 @@
   langSelect.addEventListener('change', () => {
     setLang(langSelect.value);
     updateThemeLabel();
+    updateSoundLabel();
   });
 
   // Theme
@@ -55,6 +59,28 @@
   themeToggle.addEventListener('click', () => {
     const current = document.documentElement.getAttribute('data-theme') || 'dark';
     applyTheme(current === 'dark' ? 'light' : 'dark');
+  });
+
+  // Sound
+  function updateSoundLabel() {
+    if (Sound.isMuted()) {
+      soundIcon.textContent = '🔇';
+      soundLabel.textContent = t('soundOff');
+    } else {
+      soundIcon.textContent = '🔊';
+      soundLabel.textContent = t('soundOn');
+    }
+  }
+
+  const savedSound = localStorage.getItem('ms3-sound');
+  Sound.setMuted(savedSound !== 'on'); // default off
+  updateSoundLabel();
+
+  soundToggle.addEventListener('click', () => {
+    const nowMuted = !Sound.isMuted();
+    Sound.setMuted(nowMuted);
+    localStorage.setItem('ms3-sound', nowMuted ? 'off' : 'on');
+    updateSoundLabel();
   });
 
   // Screen navigation

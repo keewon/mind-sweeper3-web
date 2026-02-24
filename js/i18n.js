@@ -52,6 +52,9 @@ const I18N = {
       helpBtnQuestion: '? — Mark as uncertain',
       menuHelpName: 'Controls',
       menuHelpDesc: 'Keyboard / Mouse / Touch controls',
+      soundLabel: 'Sound effects',
+      soundOn: 'Sound ON',
+      soundOff: 'Sound OFF',
     },
     ja: {
       title: '闇の中のマインスイーパー',
@@ -104,6 +107,9 @@ const I18N = {
       helpBtnQuestion: '? — 不確かなマスを記録',
       menuHelpName: '操作方法',
       menuHelpDesc: 'キーボード / マウス / タッチ操作の説明',
+      soundLabel: '効果音',
+      soundOn: '効果音 ON',
+      soundOff: '効果音 OFF',
     },
     fr: {
       title: 'Démineur dans le noir',
@@ -156,6 +162,9 @@ const I18N = {
       helpBtnQuestion: '? — Marquer comme incertain',
       menuHelpName: 'Commandes',
       menuHelpDesc: 'Clavier / Souris / Contrôles tactiles',
+      soundLabel: 'Effets sonores',
+      soundOn: 'Son ON',
+      soundOff: 'Son OFF',
     },
     zh: {
       title: '黑暗中的扫雷',
@@ -208,6 +217,9 @@ const I18N = {
       helpBtnQuestion: '? — 标记为不确定',
       menuHelpName: '操作说明',
       menuHelpDesc: '键盘 / 鼠标 / 触屏操作说明',
+      soundLabel: '音效',
+      soundOn: '音效 ON',
+      soundOff: '音效 OFF',
     },
     es: {
       title: 'Buscaminas en la oscuridad',
@@ -260,6 +272,9 @@ const I18N = {
       helpBtnQuestion: '? — Marcar como incierto',
       menuHelpName: 'Controles',
       menuHelpDesc: 'Teclado / Ratón / Controles táctiles',
+      soundLabel: 'Efectos de sonido',
+      soundOn: 'Sonido ON',
+      soundOff: 'Sonido OFF',
     },
     vi: {
       title: 'Dò mìn trong bóng tối',
@@ -312,6 +327,9 @@ const I18N = {
       helpBtnQuestion: '? — Đánh dấu chưa chắc chắn',
       menuHelpName: 'Điều khiển',
       menuHelpDesc: 'Bàn phím / Chuột / Cảm ứng',
+      soundLabel: 'Hiệu ứng âm thanh',
+      soundOn: 'Âm thanh ON',
+      soundOff: 'Âm thanh OFF',
     },
     ko: {
       title: '어둠 속의 지뢰찾기',
@@ -364,6 +382,9 @@ const I18N = {
       helpBtnQuestion: '? — 불확실한 칸 표시',
       menuHelpName: '조작 방법',
       menuHelpDesc: '키보드 / 마우스 / 터치 조작 설명',
+      soundLabel: '효과음 설정',
+      soundOn: '효과음 ON',
+      soundOff: '효과음 OFF',
     },
   },
 };
@@ -430,6 +451,10 @@ function applyStaticTranslations() {
   // Theme toggle
   const themeToggle = document.getElementById('theme-toggle');
   if (themeToggle) themeToggle.setAttribute('aria-label', t('themeLabel'));
+
+  // Sound toggle
+  const soundToggle = document.getElementById('sound-toggle');
+  if (soundToggle) soundToggle.setAttribute('aria-label', t('soundLabel'));
 
   // Lang select
   const langLabel = document.getElementById('lang-label');
