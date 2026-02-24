@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1a1a2e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="manifest.json">
+  <title>Minesweeper in the Dark</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Menu Screen -->
+  <div id="menu-screen" class="screen active">
+    <main class="menu-container">
+      <h1 class="menu-title" id="menu-title" tabindex="-1"></h1>
+      <nav class="mode-list" aria-label="게임 모드 선택">
+        <button class="mode-btn" data-mode="normal">
+          <span class="mode-name">일반 모드</span>
+          <span class="mode-desc">전체 보드가 항상 보입니다</span>
+        </button>
+        <button class="mode-btn" data-mode="fog3x3">
+          <span class="mode-name">3×3 시야 모드</span>
+          <span class="mode-desc">선택한 칸 주변 3×3만 보입니다</span>
+        </button>
+        <button class="mode-btn" data-mode="fog1">
+          <span class="mode-name">1칸 시야 모드</span>
+          <span class="mode-desc">방금 선택한 칸 1개만 보입니다</span>
+        </button>
+        <button class="mode-btn menu-help-btn" id="btn-menu-help">
+          <span class="mode-name" id="menuHelpName">조작 방법</span>
+          <span class="mode-desc" id="menuHelpDesc">키보드 / 마우스 / 터치 조작 설명</span>
+        </button>
+      </nav>
+      <div class="menu-settings">
+        <label for="lang-select" class="sr-only" id="lang-label">언어</label>
+        <select id="lang-select" class="lang-select">
+          <option value="en">English</option>
+          <option value="ja">日本語</option>
+          <option value="fr">Français</option>
+          <option value="zh">中文</option>
+          <option value="es">Español</option>
+          <option value="vi">Tiếng Việt</option>
+          <option value="ko" selected>한국어</option>
+        </select>
+        <button id="theme-toggle" class="theme-toggle" aria-label="테마 변경">
+          <span id="theme-icon">🌙</span> <span id="theme-label">다크 모드</span>
+        </button>
+      </div>
+    </main>
+  </div>
+
+  <!-- Game Screen -->
+  <div id="game-screen" class="screen">
+    <header class="game-header">
+      <button id="btn-back" class="header-btn" aria-label="메뉴로 돌아가기">←</button>
+      <div class="game-info">
+        <span id="mine-count" class="info-item" aria-label="남은 지뢰 수">💣 <span id="mine-num">10</span></span>
+        <span id="timer" class="info-item" aria-label="경과 시간">⏱ <span id="timer-display">00:00</span></span>
+      </div>
+      <div id="header-win" class="header-banner header-banner-win hidden" aria-live="polite">
+        <span id="header-win-text"></span> <span id="header-win-time"></span>
+      </div>
+      <div id="header-lose" class="header-banner header-banner-lose hidden" aria-live="polite">
+      </div>
+      <div class="header-right">
+        <button id="btn-help" class="header-btn" aria-label="도움말">?</button>
+        <button id="btn-restart" class="header-btn" aria-label="다시하기">↻</button>
+      </div>
+    </header>
+
+    <div id="board-container" role="grid" aria-label="지뢰찾기 보드">
+    </div>
+
+    <footer class="game-footer">
+      <div id="selection-info" class="selection-info" aria-live="polite">
+        칸을 선택하세요
+      </div>
+      <div class="action-buttons">
+        <button id="btn-open" class="action-btn btn-open" disabled>Open</button>
+        <button id="btn-mark" class="action-btn btn-mark" disabled>Flag</button>
+        <button id="btn-question" class="action-btn btn-question" disabled>?</button>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Help Screen -->
+  <div id="help-screen" class="screen">
+    <header class="game-header">
+      <button id="btn-help-back" class="header-btn" aria-label="돌아가기">←</button>
+      <h2 class="help-header-title" id="help-title"></h2>
+      <div style="width:44px"></div>
+    </header>
+    <main class="help-content">
+      <section class="help-section">
+        <ul class="help-list">
+          <li id="helpSelect"></li>
+          <li id="helpOpen"></li>
+          <li id="helpMark"></li>
+          <li id="helpNav"></li>
+        </ul>
+      </section>
+      <section class="help-section">
+        <h3 id="helpBtnTitle" class="help-section-title"></h3>
+        <ul class="help-list">
+          <li id="helpBtnOpen"></li>
+          <li id="helpBtnSweep"></li>
+          <li id="helpBtnMark"></li>
+          <li id="helpBtnQuestion"></li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/sound.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "Mindsweeper3",
+  "short_name": "Mindsweeper3",
+  "description": "어둠 속의 지뢰찾기",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#1a1a2e",
+  "theme_color": "#1a1a2e",
+  "orientation": "portrait",
+  "icons": []
+}

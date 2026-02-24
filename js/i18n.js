@@ -1,0 +1,450 @@
+const I18N = {
+  _lang: 'ko',
+  _strings: {
+    en: {
+      title: 'Minesweeper in the Dark',
+      modeNormal: 'Normal Mode',
+      modeNormalDesc: 'Full board always visible',
+      modeFog3x3: '3×3 Vision Mode',
+      modeFog3x3Desc: 'Only 3×3 area around selection visible',
+      modeFog1: '1-Cell Vision Mode',
+      modeFog1Desc: 'Only the selected cell is visible',
+      modeSelectLabel: 'Select game mode',
+      backLabel: 'Back to menu',
+      mineLabel: 'Remaining mines',
+      timerLabel: 'Elapsed time',
+      restartLabel: 'Restart',
+      boardLabel: 'Minesweeper board',
+      themeLabel: 'Change theme',
+      themeDark: 'Dark Mode',
+      themeLight: 'Light Mode',
+      langLabel: 'Language',
+      selectCell: 'Select a cell',
+      selection: 'Selected',
+      open: 'Open',
+      sweep: 'Sweep',
+      mark: 'Flag',
+      unmark: 'Unflag',
+      endHint: '↻ Restart / ← Menu',
+      headerWin: '🎉 Victory!',
+      headerLose: '💥 Game Over',
+      cellFlag: '🚩 Flag',
+      cellHidden: '? Unknown',
+      cellMine: '💣 Mine!',
+      cellEmpty: 'Empty',
+      cellQuestion: '? Maybe',
+      cellAria: 'Row {r}, Col {c}, {state}',
+      ariaHidden: 'unknown',
+      ariaQuestion: 'maybe',
+      ariaMine: 'mine',
+      ariaEmpty: 'empty',
+      ariaFlag: 'flag',
+      helpLabel: 'Help',
+      helpTitle: 'Controls',
+      helpSelect: 'Tap / Click → Select cell',
+      helpOpen: 'Long press / D → Open / Sweep',
+      helpMark: 'Right-click / F → Toggle flag',
+      helpNav: '↑↓←→ / HJKL → Navigate',
+      helpBtnTitle: 'Buttons',
+      helpBtnOpen: 'Open — Reveal a hidden cell',
+      helpBtnSweep: 'Sweep — Open neighbors when flags match the number',
+      helpBtnMark: 'Flag — Toggle mine flag',
+      helpBtnQuestion: '? — Mark as uncertain',
+      menuHelpName: 'Controls',
+      menuHelpDesc: 'Keyboard / Mouse / Touch controls',
+    },
+    ja: {
+      title: '闇の中のマインスイーパー',
+      modeNormal: 'ノーマルモード',
+      modeNormalDesc: 'ボード全体が常に表示されます',
+      modeFog3x3: '3×3視野モード',
+      modeFog3x3Desc: '選択マスの周囲3×3のみ表示',
+      modeFog1: '1マス視野モード',
+      modeFog1Desc: '選択したマスのみ表示',
+      modeSelectLabel: 'ゲームモード選択',
+      backLabel: 'メニューに戻る',
+      mineLabel: '残り地雷数',
+      timerLabel: '経過時間',
+      restartLabel: 'やり直す',
+      boardLabel: 'マインスイーパーボード',
+      themeLabel: 'テーマ変更',
+      themeDark: 'ダークモード',
+      themeLight: 'ライトモード',
+      langLabel: '言語',
+      selectCell: 'マスを選択してください',
+      selection: '選択',
+      open: 'Open',
+      sweep: 'Sweep',
+      mark: 'Flag',
+      unmark: 'Unflag',
+      endHint: '↻ やり直す / ← メニュー',
+      headerWin: '🎉 クリア！',
+      headerLose: '💥 ゲームオーバー',
+      cellFlag: '🚩 フラグ',
+      cellHidden: '? 未確認',
+      cellMine: '💣 地雷！',
+      cellEmpty: '空',
+      cellQuestion: '? 不明',
+      cellAria: '{r}行{c}列、{state}',
+      ariaHidden: '未確認',
+      ariaQuestion: '不明',
+      ariaMine: '地雷',
+      ariaEmpty: '空',
+      ariaFlag: 'フラグ',
+      helpLabel: 'ヘルプ',
+      helpTitle: '操作方法',
+      helpSelect: 'タップ / クリック → マスを選択',
+      helpOpen: '長押し / D → 開く / 掃除',
+      helpMark: '右クリック / F → フラグ切替',
+      helpNav: '↑↓←→ / HJKL → 移動',
+      helpBtnTitle: 'ボタン',
+      helpBtnOpen: 'Open — マスを開く',
+      helpBtnSweep: 'Sweep — フラグ数が一致したら周囲を開く',
+      helpBtnMark: 'Flag — 地雷フラグの切替',
+      helpBtnQuestion: '? — 不確かなマスを記録',
+      menuHelpName: '操作方法',
+      menuHelpDesc: 'キーボード / マウス / タッチ操作の説明',
+    },
+    fr: {
+      title: 'Démineur dans le noir',
+      modeNormal: 'Mode Normal',
+      modeNormalDesc: 'Plateau entièrement visible',
+      modeFog3x3: 'Mode Vision 3×3',
+      modeFog3x3Desc: 'Seule la zone 3×3 autour de la sélection est visible',
+      modeFog1: 'Mode Vision 1 case',
+      modeFog1Desc: 'Seule la case sélectionnée est visible',
+      modeSelectLabel: 'Choisir le mode de jeu',
+      backLabel: 'Retour au menu',
+      mineLabel: 'Mines restantes',
+      timerLabel: 'Temps écoulé',
+      restartLabel: 'Recommencer',
+      boardLabel: 'Plateau de démineur',
+      themeLabel: 'Changer le thème',
+      themeDark: 'Mode Sombre',
+      themeLight: 'Mode Clair',
+      langLabel: 'Langue',
+      selectCell: 'Sélectionnez une case',
+      selection: 'Sélection',
+      open: 'Ouvrir',
+      sweep: 'Balayer',
+      mark: 'Marquer',
+      unmark: 'Démarquer',
+      endHint: '↻ Recommencer / ← Menu',
+      headerWin: '🎉 Victoire !',
+      headerLose: '💥 Perdu',
+      cellFlag: '🚩 Drapeau',
+      cellHidden: '? Inconnu',
+      cellMine: '💣 Mine !',
+      cellEmpty: 'Vide',
+      cellQuestion: '? Peut-être',
+      cellAria: 'Ligne {r}, Colonne {c}, {state}',
+      ariaHidden: 'inconnu',
+      ariaQuestion: 'peut-être',
+      ariaMine: 'mine',
+      ariaEmpty: 'vide',
+      ariaFlag: 'drapeau',
+      helpLabel: 'Aide',
+      helpTitle: 'Commandes',
+      helpSelect: 'Tap / Clic → Sélectionner',
+      helpOpen: 'Appui long / D → Ouvrir / Balayer',
+      helpMark: 'Clic droit / F → Drapeau',
+      helpNav: '↑↓←→ / HJKL → Naviguer',
+      helpBtnTitle: 'Boutons',
+      helpBtnOpen: 'Ouvrir — Révéler une case',
+      helpBtnSweep: 'Balayer — Ouvrir autour si drapeaux = nombre',
+      helpBtnMark: 'Marquer — Basculer le drapeau',
+      helpBtnQuestion: '? — Marquer comme incertain',
+      menuHelpName: 'Commandes',
+      menuHelpDesc: 'Clavier / Souris / Contrôles tactiles',
+    },
+    zh: {
+      title: '黑暗中的扫雷',
+      modeNormal: '普通模式',
+      modeNormalDesc: '始终显示整个棋盘',
+      modeFog3x3: '3×3视野模式',
+      modeFog3x3Desc: '仅显示所选格子周围3×3区域',
+      modeFog1: '单格视野模式',
+      modeFog1Desc: '仅显示所选的一个格子',
+      modeSelectLabel: '选择游戏模式',
+      backLabel: '返回菜单',
+      mineLabel: '剩余地雷数',
+      timerLabel: '已用时间',
+      restartLabel: '重新开始',
+      boardLabel: '扫雷棋盘',
+      themeLabel: '切换主题',
+      themeDark: '深色模式',
+      themeLight: '浅色模式',
+      langLabel: '语言',
+      selectCell: '请选择一个格子',
+      selection: '已选',
+      open: '打开',
+      sweep: '扫除',
+      mark: '标记',
+      unmark: '取消标记',
+      endHint: '↻ 重新开始 / ← 菜单',
+      headerWin: '🎉 胜利！',
+      headerLose: '💥 游戏结束',
+      cellFlag: '🚩 旗帜',
+      cellHidden: '? 未知',
+      cellMine: '💣 地雷！',
+      cellEmpty: '空',
+      cellQuestion: '? 可能',
+      cellAria: '第{r}行第{c}列，{state}',
+      ariaHidden: '未知',
+      ariaQuestion: '可能',
+      ariaMine: '地雷',
+      ariaEmpty: '空',
+      ariaFlag: '旗帜',
+      helpLabel: '帮助',
+      helpTitle: '操作说明',
+      helpSelect: '点击 → 选择格子',
+      helpOpen: '长按 / D → 打开 / 扫除',
+      helpMark: '右键 / F → 切换旗帜',
+      helpNav: '↑↓←→ / HJKL → 移动',
+      helpBtnTitle: '按钮',
+      helpBtnOpen: '打开 — 揭示隐藏的格子',
+      helpBtnSweep: '扫除 — 旗帜数匹配时打开周围格子',
+      helpBtnMark: '标记 — 切换地雷旗帜',
+      helpBtnQuestion: '? — 标记为不确定',
+      menuHelpName: '操作说明',
+      menuHelpDesc: '键盘 / 鼠标 / 触屏操作说明',
+    },
+    es: {
+      title: 'Buscaminas en la oscuridad',
+      modeNormal: 'Modo Normal',
+      modeNormalDesc: 'Tablero completo siempre visible',
+      modeFog3x3: 'Modo Visión 3×3',
+      modeFog3x3Desc: 'Solo visible el área 3×3 alrededor',
+      modeFog1: 'Modo Visión 1 celda',
+      modeFog1Desc: 'Solo visible la celda seleccionada',
+      modeSelectLabel: 'Seleccionar modo de juego',
+      backLabel: 'Volver al menú',
+      mineLabel: 'Minas restantes',
+      timerLabel: 'Tiempo transcurrido',
+      restartLabel: 'Reiniciar',
+      boardLabel: 'Tablero de buscaminas',
+      themeLabel: 'Cambiar tema',
+      themeDark: 'Modo Oscuro',
+      themeLight: 'Modo Claro',
+      langLabel: 'Idioma',
+      selectCell: 'Selecciona una celda',
+      selection: 'Selección',
+      open: 'Abrir',
+      sweep: 'Barrer',
+      mark: 'Marcar',
+      unmark: 'Desmarcar',
+      endHint: '↻ Reiniciar / ← Menú',
+      headerWin: '🎉 ¡Victoria!',
+      headerLose: '💥 Fin del juego',
+      cellFlag: '🚩 Bandera',
+      cellHidden: '? Desconocido',
+      cellMine: '💣 ¡Mina!',
+      cellEmpty: 'Vacío',
+      cellQuestion: '? Quizás',
+      cellAria: 'Fila {r}, Columna {c}, {state}',
+      ariaHidden: 'desconocido',
+      ariaQuestion: 'quizás',
+      ariaMine: 'mina',
+      ariaEmpty: 'vacío',
+      ariaFlag: 'bandera',
+      helpLabel: 'Ayuda',
+      helpTitle: 'Controles',
+      helpSelect: 'Tap / Clic → Seleccionar celda',
+      helpOpen: 'Pulsación larga / D → Abrir / Barrer',
+      helpMark: 'Clic derecho / F → Bandera',
+      helpNav: '↑↓←→ / HJKL → Navegar',
+      helpBtnTitle: 'Botones',
+      helpBtnOpen: 'Abrir — Revelar celda oculta',
+      helpBtnSweep: 'Barrer — Abrir alrededor si banderas = número',
+      helpBtnMark: 'Marcar — Alternar bandera',
+      helpBtnQuestion: '? — Marcar como incierto',
+      menuHelpName: 'Controles',
+      menuHelpDesc: 'Teclado / Ratón / Controles táctiles',
+    },
+    vi: {
+      title: 'Dò mìn trong bóng tối',
+      modeNormal: 'Chế độ Thường',
+      modeNormalDesc: 'Toàn bộ bảng luôn hiển thị',
+      modeFog3x3: 'Tầm nhìn 3×3',
+      modeFog3x3Desc: 'Chỉ hiển thị vùng 3×3 quanh ô được chọn',
+      modeFog1: 'Tầm nhìn 1 ô',
+      modeFog1Desc: 'Chỉ hiển thị ô được chọn',
+      modeSelectLabel: 'Chọn chế độ chơi',
+      backLabel: 'Quay lại menu',
+      mineLabel: 'Số mìn còn lại',
+      timerLabel: 'Thời gian',
+      restartLabel: 'Chơi lại',
+      boardLabel: 'Bảng dò mìn',
+      themeLabel: 'Đổi giao diện',
+      themeDark: 'Giao diện Tối',
+      themeLight: 'Giao diện Sáng',
+      langLabel: 'Ngôn ngữ',
+      selectCell: 'Chọn một ô',
+      selection: 'Đã chọn',
+      open: 'Mở',
+      sweep: 'Quét',
+      mark: 'Đánh dấu',
+      unmark: 'Bỏ dấu',
+      endHint: '↻ Chơi lại / ← Menu',
+      headerWin: '🎉 Chiến thắng!',
+      headerLose: '💥 Thua cuộc',
+      cellFlag: '🚩 Cờ',
+      cellHidden: '? Chưa mở',
+      cellMine: '💣 Mìn!',
+      cellEmpty: 'Trống',
+      cellQuestion: '? Có thể',
+      cellAria: 'Hàng {r}, Cột {c}, {state}',
+      ariaHidden: 'chưa mở',
+      ariaQuestion: 'có thể',
+      ariaMine: 'mìn',
+      ariaEmpty: 'trống',
+      ariaFlag: 'cờ',
+      helpLabel: 'Trợ giúp',
+      helpTitle: 'Điều khiển',
+      helpSelect: 'Chạm / Nhấp → Chọn ô',
+      helpOpen: 'Nhấn giữ / D → Mở / Quét',
+      helpMark: 'Nhấp phải / F → Cờ đánh dấu',
+      helpNav: '↑↓←→ / HJKL → Di chuyển',
+      helpBtnTitle: 'Nút',
+      helpBtnOpen: 'Mở — Mở ô ẩn',
+      helpBtnSweep: 'Quét — Mở xung quanh khi cờ khớp số',
+      helpBtnMark: 'Đánh dấu — Bật/tắt cờ mìn',
+      helpBtnQuestion: '? — Đánh dấu chưa chắc chắn',
+      menuHelpName: 'Điều khiển',
+      menuHelpDesc: 'Bàn phím / Chuột / Cảm ứng',
+    },
+    ko: {
+      title: '어둠 속의 지뢰찾기',
+      modeNormal: '일반 모드',
+      modeNormalDesc: '전체 보드가 항상 보입니다',
+      modeFog3x3: '3×3 시야 모드',
+      modeFog3x3Desc: '선택한 칸 주변 3×3만 보입니다',
+      modeFog1: '1칸 시야 모드',
+      modeFog1Desc: '방금 선택한 칸 1개만 보입니다',
+      modeSelectLabel: '게임 모드 선택',
+      backLabel: '메뉴로 돌아가기',
+      mineLabel: '남은 지뢰 수',
+      timerLabel: '경과 시간',
+      restartLabel: '다시하기',
+      boardLabel: '지뢰찾기 보드',
+      themeLabel: '테마 변경',
+      themeDark: '다크 모드',
+      themeLight: '라이트 모드',
+      langLabel: '언어',
+      selectCell: '칸을 선택하세요',
+      selection: '선택',
+      open: 'Open',
+      sweep: 'Sweep',
+      mark: 'Flag',
+      unmark: 'Unflag',
+      endHint: '↻ 다시하기 / ← 메뉴로',
+      headerWin: '🎉 승리!',
+      headerLose: '💥 게임 오버',
+      cellFlag: '🚩 깃발',
+      cellHidden: '? 미확인',
+      cellMine: '💣 지뢰!',
+      cellEmpty: '빈 칸',
+      cellQuestion: '? 의심',
+      cellAria: '{r}행 {c}열, {state}',
+      ariaHidden: '미확인',
+      ariaQuestion: '의심',
+      ariaMine: '지뢰',
+      ariaEmpty: '빈 칸',
+      ariaFlag: '깃발',
+      helpLabel: '도움말',
+      helpTitle: '조작 방법',
+      helpSelect: '탭 / 클릭 → 칸 선택',
+      helpOpen: '길게 누르기 / D → 열기 / Sweep',
+      helpMark: '우클릭 / F → 깃발 토글',
+      helpNav: '↑↓←→ / HJKL → 이동',
+      helpBtnTitle: '버튼 설명',
+      helpBtnOpen: 'Open — 숨겨진 칸 열기',
+      helpBtnSweep: 'Sweep — 깃발 수가 숫자와 같으면 주변 열기',
+      helpBtnMark: 'Flag — 지뢰 깃발 토글',
+      helpBtnQuestion: '? — 불확실한 칸 표시',
+      menuHelpName: '조작 방법',
+      menuHelpDesc: '키보드 / 마우스 / 터치 조작 설명',
+    },
+  },
+};
+
+function t(key) {
+  return I18N._strings[I18N._lang]?.[key] || I18N._strings['en'][key] || key;
+}
+
+function tCellAria(r, c, state) {
+  return t('cellAria').replace('{r}', r).replace('{c}', c).replace('{state}', state);
+}
+
+function setLang(lang) {
+  if (!I18N._strings[lang]) lang = 'en';
+  I18N._lang = lang;
+  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
+  localStorage.setItem('ms3-lang', lang);
+  applyStaticTranslations();
+}
+
+function applyStaticTranslations() {
+  // Menu screen
+  const menuTitle = document.getElementById('menu-title');
+  if (menuTitle) menuTitle.textContent = t('title');
+
+  const modeNames = document.querySelectorAll('.mode-btn .mode-name');
+  const modeDescs = document.querySelectorAll('.mode-btn .mode-desc');
+  const modeKeys = ['modeNormal', 'modeFog3x3', 'modeFog1'];
+  const modeDescKeys = ['modeNormalDesc', 'modeFog3x3Desc', 'modeFog1Desc'];
+  modeNames.forEach((el, i) => { el.textContent = t(modeKeys[i]); });
+  modeDescs.forEach((el, i) => { el.textContent = t(modeDescKeys[i]); });
+
+  const modeNav = document.querySelector('.mode-list');
+  if (modeNav) modeNav.setAttribute('aria-label', t('modeSelectLabel'));
+
+  const menuHelpName = document.getElementById('menuHelpName');
+  if (menuHelpName) menuHelpName.textContent = t('menuHelpName');
+  const menuHelpDesc = document.getElementById('menuHelpDesc');
+  if (menuHelpDesc) menuHelpDesc.textContent = t('menuHelpDesc');
+
+  // Game screen aria labels
+  const btnBack = document.getElementById('btn-back');
+  if (btnBack) btnBack.setAttribute('aria-label', t('backLabel'));
+
+  const mineCount = document.getElementById('mine-count');
+  if (mineCount) mineCount.setAttribute('aria-label', t('mineLabel'));
+
+  const timer = document.getElementById('timer');
+  if (timer) timer.setAttribute('aria-label', t('timerLabel'));
+
+  const btnRestart = document.getElementById('btn-restart');
+  if (btnRestart) btnRestart.setAttribute('aria-label', t('restartLabel'));
+
+  const btnHelp = document.getElementById('btn-help');
+  if (btnHelp) btnHelp.setAttribute('aria-label', t('helpLabel'));
+
+  const boardContainer = document.getElementById('board-container');
+  if (boardContainer) boardContainer.setAttribute('aria-label', t('boardLabel'));
+
+  // Header banners
+  const headerLose = document.getElementById('header-lose');
+  if (headerLose) headerLose.textContent = t('headerLose');
+
+  // Theme toggle
+  const themeToggle = document.getElementById('theme-toggle');
+  if (themeToggle) themeToggle.setAttribute('aria-label', t('themeLabel'));
+
+  // Lang select
+  const langLabel = document.getElementById('lang-label');
+  if (langLabel) langLabel.textContent = t('langLabel');
+
+  // Help screen
+  const helpTitle = document.getElementById('help-title');
+  if (helpTitle) helpTitle.textContent = t('helpTitle');
+
+  const helpKeys = [
+    'helpSelect', 'helpOpen', 'helpMark', 'helpNav',
+    'helpBtnTitle', 'helpBtnOpen', 'helpBtnSweep', 'helpBtnMark', 'helpBtnQuestion',
+  ];
+  helpKeys.forEach(key => {
+    const el = document.getElementById(key);
+    if (el) el.textContent = t(key);
+  });
+}
